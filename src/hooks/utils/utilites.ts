@@ -1,14 +1,17 @@
-export const orderMovies = (data: any) => {
-  data.results.sort(function (movieA: any, movieB: any) {
-    const nameA = movieA.title.toUpperCase(); // ignore upper and lowercase
-    const nameB = movieB.title.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
+import { Movie } from '../../interfaces/MovieInterface';
+
+export const orderMovies = (results: Movie[]) => {
+  results = results.sort(function (movieA: Movie, movieB: Movie) {
+    const titleA = movieA.title.toUpperCase(); // ignore upper and lowercase
+    const titleB = movieB.title.toUpperCase(); // ignore upper and lowercase
+    if (titleA < titleB) {
       return -1; // not pass
     }
-    if (nameA > nameB) {
+    if (titleA > titleB) {
       return 1; // pass
     }
     // if titles are equal -> pass
     return 0;
   });
+  return results;
 };

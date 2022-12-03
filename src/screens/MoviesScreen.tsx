@@ -12,7 +12,7 @@ export const MoviesScreen = () => {
   return (
     <Layout>
       <HorizontalSlider
-        title="Populares"
+        title="Now Playing"
         content={nowPlaying}
         isLoading={isLoadingNowPlaying}
       />
