@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import API from '../../api/MovieAPI';
 import { AxiosResponse } from 'axios';
 
-const useGet = ( url: string ): { data: AxiosResponse['data']; isFetching: boolean; } => {
+const useGet = (
+  url: string,
+): {
+  data: AxiosResponse['data'];
+  isFetching: boolean;
+} => {
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [data, setData] = useState<AxiosResponse['data']>();
 
