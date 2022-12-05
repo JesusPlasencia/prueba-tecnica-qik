@@ -20,7 +20,7 @@ export const HorizontalSlider = ({
         <FlatList
           data={content}
           renderItem={({ item }) => (
-            <Poster movie={item} height={200} width={140} />
+            <Poster movie={item} height={360} width={196} />
           )}
           keyExtractor={(item) => item.id.toString()}
           horizontal={true}
@@ -34,7 +34,7 @@ export const HorizontalSlider = ({
 const containerStyle = ({ hasTitle }: { hasTitle: boolean }) =>
   StyleSheet.create({
     style: {
-      height: hasTitle ? 240 : 200,
+      height: hasTitle ? 400 : 280,
       marginBottom: 15,
     },
   }).style;

@@ -1,14 +1,10 @@
 import React from 'react';
-import { Image, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { PosterInterface } from '../interfaces/PosterInterface';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 // import { useNavigation } from '@react-navigation/core';
 
-export const Poster = ({
-  movie,
-  height = 400,
-  width = 300,
-}: PosterInterface) => {
+export const Poster = ({ movie, height, width }: PosterInterface) => {
   const uriImage = `https://image.tmdb.org/t/p/w500${movie?.poster_path}`;
   //   const navigation = useNavigation();
 
@@ -28,12 +24,21 @@ export const Poster = ({
             />
           </View>
         ) : (
-          <Image
-            source={{ uri: uriImage }}
-            style={styles.image}
-            resizeMode="stretch"
-          />
+          <>
+            <Image
+              source={{ uri: uriImage }}
+              style={styles.image}
+              resizeMode="stretch"
+            />
+          </>
         )}
+      </View>
+      <View style={styles.movieInfoContainer}>
+        <Text style={styles.movieTitle}> {movie.title} </Text>
+        <View style={styles.rateInfoContainer}>
+          <Text style={styles.rateInfo}>{movie.vote_average + '⭐'}</Text>
+          <Text style={styles.releaseInfo}>{movie.release_date}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -76,5 +81,26 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
+  },
+  movieInfoContainer: {
+    height: 75,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  movieTitle: {
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  rateInfoContainer: {
+    flexDirection: 'row',
+  },
+  rateInfo: {
+    marginRight: 20,
+  },
+  releaseInfo: {
+    marginLeft: 20,
   },
 });
