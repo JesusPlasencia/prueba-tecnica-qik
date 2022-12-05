@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Loading } from './Loading';
 import currencyFormatter from 'currency-formatter';
 import { MovieFull } from '../interfaces/MovieFullInterface';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface Props {
   movieFull: MovieFull;
@@ -10,7 +11,6 @@ interface Props {
 }
 
 export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
-  console.log(movieFull);
   return isLoadingDetail ? (
     <Loading />
   ) : (
@@ -22,7 +22,8 @@ export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
       </View>
       <View style={detailStyles.container}>
         <View style={detailStyles.rate}>
-          <Text> {'⭐' + movieFull?.vote_average}</Text>
+          <Icon name="star" color="yellow" size={16} />
+          <Text> {movieFull?.vote_average}</Text>
           <Text style={detailStyles.genres}>
             - {movieFull?.genres.map((g: any) => g.name).join(', ')}
           </Text>

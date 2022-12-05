@@ -37,7 +37,10 @@ export const Poster = ({ movie, height, width }: PosterInterface) => {
       <View style={styles.movieInfoContainer}>
         <Text style={styles.movieTitle}> {movie.title} </Text>
         <View style={styles.rateInfoContainer}>
-          <Text style={styles.rateInfo}>{movie.vote_average + '⭐'}</Text>
+          <View style={styles.rateInfo}>
+            <Text>{movie.vote_average}</Text>
+            <Icon name="star" color="yellow" size={16} />
+          </View>
           <Text style={styles.releaseInfo}>{movie.release_date}</Text>
         </View>
       </View>
@@ -100,6 +103,7 @@ const styles = StyleSheet.create({
   },
   rateInfo: {
     marginRight: 20,
+    flexDirection: 'row',
   },
   releaseInfo: {
     marginLeft: 20,
