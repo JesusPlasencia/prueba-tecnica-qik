@@ -2,14 +2,15 @@ import React from 'react';
 import { Image, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { PosterInterface } from '../interfaces/PosterInterface';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-// import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 
 export const Poster = ({ movie, height, width }: PosterInterface) => {
   const uriImage = `https://image.tmdb.org/t/p/w500${movie?.poster_path}`;
-  //   const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <TouchableOpacity
+      onPress={() => navigation.navigate('MovieDetailScreen', { movie })}
       activeOpacity={0.8}
       style={touchableOpacityStyle({ height, width })}
     >
