@@ -1,12 +1,24 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+// import { CastSlider } from '../components/CastSlider';
+import { Layout } from '../components/Layout';
+import { MovieDetails } from '../components/MovieDetails';
+import { PosterDetail } from '../components/PosterDetail';
+// import { useCast } from '../hooks/movies/useCast';
+import { useMovieDetail } from '../hooks/movies/useMovieDetail';
 
 export const MovieDetailScreen = ({ route }: any) => {
   const { movie } = route.params;
-  console.log(movie.title);
+  const { isLoadingDetail, detailMovie } = useMovieDetail({
+    id: movie.id,
+  });
+  // const {isLoadingCast, cast} = useCast({
+  //   id: movie.id,
+  // });
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ color: 'black' }}>MovieDetailScreen</Text>
-    </View>
+    <Layout>
+      <PosterDetail posterUrl={movie?.poster_path} />
+      <MovieDetails movieFull={detailMovie} isLoadingDetail={isLoadingDetail} />
+      {/* <CastSlider /> */}
+    </Layout>
   );
 };
