@@ -10,13 +10,13 @@ interface Props {
 }
 
 export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
+  console.log(movieFull);
   return isLoadingDetail ? (
     <Loading />
   ) : (
     <>
       <View style={detailStyles.marginContainer}>
         <View style={detailStyles.textWrapper}>
-          <Text style={detailStyles.subTitle}>{movieFull?.original_title}</Text>
           <Text style={detailStyles.title}>{movieFull?.title}</Text>
         </View>
       </View>
@@ -25,6 +25,10 @@ export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
           <Text> {'⭐' + movieFull?.vote_average}</Text>
           <Text style={detailStyles.genres}>
             - {movieFull?.genres.map((g: any) => g.name).join(', ')}
+          </Text>
+          <Text style={detailStyles.date}>
+            {' '}
+            - {movieFull?.release_date.substring(0, 4)}
           </Text>
         </View>
         <Text style={detailStyles.header}>Historia</Text>
@@ -51,15 +55,13 @@ const detailStyles = StyleSheet.create({
   },
   buttonWrapper: {
     justifyContent: 'flex-end',
-    // marginHorizontal: 10,
-    // backgroundColor: 'red',
   },
   subTitle: {
     fontSize: 16,
     opacity: 0.8,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   container: {
@@ -71,8 +73,11 @@ const detailStyles = StyleSheet.create({
   genres: {
     marginLeft: 5,
   },
+  date: {
+    marginLeft: 5,
+  },
   header: {
-    fontSize: 23,
+    fontSize: 20,
     marginTop: 10,
     fontWeight: 'bold',
   },
