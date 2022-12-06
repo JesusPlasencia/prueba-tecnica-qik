@@ -4,8 +4,8 @@ import { PosterInterface } from '../interfaces/PosterInterface';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
 
-export const Poster = ({ movie, height, width }: PosterInterface) => {
-  const uriImage = `https://image.tmdb.org/t/p/w500${movie?.poster_path}`;
+export const PosterSimilar = ({ movie, height, width }: PosterInterface) => {
+  const uriImage = `https://image.tmdb.org/t/p/w200${movie?.backdrop_path}`;
   const navigation = useNavigation();
 
   return (
@@ -34,15 +34,8 @@ export const Poster = ({ movie, height, width }: PosterInterface) => {
           </>
         )}
       </View>
-      <View style={styles.movieInfoContainer}>
-        <Text style={styles.movieTitle}> {movie.title} </Text>
-        <View style={styles.rateInfoContainer}>
-          <View style={styles.rateInfo}>
-            <Text style={styles.voteAverage}>{movie.vote_average}</Text>
-            <Icon name="star" color="yellow" size={16} />
-          </View>
-          <Text style={styles.releaseInfo}>{movie.release_date}</Text>
-        </View>
+      <View style={styles.rateInfoContainer}>
+        <Text style={styles.textWhite}>{movie?.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -91,7 +84,6 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    color: 'white',
   },
   movieTitle: {
     fontSize: 16,
@@ -101,17 +93,17 @@ const styles = StyleSheet.create({
   },
   rateInfoContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    color: 'white',
+    paddingHorizontal: 10,
   },
-  rateInfo: {
-    marginRight: 20,
+  vote_average: {
+    color: 'white',
+  },
+  textWhite: {
+    color: 'white',
+  },
+  similarRate: {
     flexDirection: 'row',
-    color: 'white',
-  },
-  voteAverage: {
-    color: 'white',
-  },
-  releaseInfo: {
-    marginLeft: 20,
-    color: 'white',
   },
 });

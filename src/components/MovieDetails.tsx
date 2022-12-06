@@ -23,19 +23,25 @@ export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
       <View style={detailStyles.container}>
         <View style={detailStyles.rate}>
           <Icon name="star" color="yellow" size={16} />
-          <Text> {movieFull?.vote_average}</Text>
-          <Text style={detailStyles.genres}>
+          <Text style={detailStyles.textWhite}> {movieFull?.vote_average}</Text>
+          <Text style={[detailStyles.genres, detailStyles.textWhite]}>
             - {movieFull?.genres.map((g: any) => g.name).join(', ')}
           </Text>
-          <Text style={detailStyles.date}>
+          <Text style={[detailStyles.date, detailStyles.textWhite]}>
             {' '}
             - {movieFull?.release_date.substring(0, 4)}
           </Text>
         </View>
-        <Text style={detailStyles.header}>Historia</Text>
-        <Text style={detailStyles.overview}>{movieFull?.overview}</Text>
-        <Text style={detailStyles.header}>Presupuesto</Text>
-        <Text style={detailStyles.budget}>
+        <Text style={[detailStyles.header, detailStyles.textWhite]}>
+          Historia
+        </Text>
+        <Text style={[detailStyles.overview, detailStyles.textWhite]}>
+          {movieFull?.overview}
+        </Text>
+        <Text style={[detailStyles.header, detailStyles.textWhite]}>
+          Presupuesto
+        </Text>
+        <Text style={[detailStyles.budget, detailStyles.textWhite]}>
           {currencyFormatter.format(movieFull?.budget, { code: 'USD' })}
         </Text>
       </View>
@@ -50,6 +56,7 @@ const detailStyles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
+    color: 'white',
   },
   textWrapper: {
     flex: 1,
@@ -64,12 +71,15 @@ const detailStyles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'white',
   },
   container: {
     marginHorizontal: 20,
+    color: 'white',
   },
   rate: {
     flexDirection: 'row',
+    color: 'white',
   },
   genres: {
     marginLeft: 5,
@@ -88,5 +98,8 @@ const detailStyles = StyleSheet.create({
   overview: {
     fontSize: 16,
     textAlign: 'justify',
+  },
+  textWhite: {
+    color: 'white',
   },
 });

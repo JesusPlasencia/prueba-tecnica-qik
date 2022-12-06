@@ -3,16 +3,16 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { SliderInterface } from '../interfaces/SliderInterface';
 
 //Components
-import { Poster } from './Poster';
+import { PosterSimilar } from './PosterSimilar';
 import { Loading } from './Loading';
 
-export const HorizontalSlider = ({
+export const SimilarSlider = ({
   title,
   content,
   isLoading,
 }: SliderInterface) => {
   return (
-    <View style={containerStyle({ hasTitle: !!title })}>
+    <View style={styles.style}>
       <Text style={styles.title}>{title}</Text>
       {isLoading ? (
         <Loading />
@@ -20,7 +20,7 @@ export const HorizontalSlider = ({
         <FlatList
           data={content}
           renderItem={({ item }) => (
-            <Poster movie={item} height={360} width={196} />
+            <PosterSimilar movie={item} height={140} width={210} />
           )}
           keyExtractor={(item) => item.id.toString()}
           horizontal={true}
@@ -31,20 +31,16 @@ export const HorizontalSlider = ({
   );
 };
 
-const containerStyle = ({ hasTitle }: { hasTitle: boolean }) =>
-  StyleSheet.create({
-    style: {
-      height: hasTitle ? 400 : 280,
-      marginBottom: 15,
-    },
-  }).style;
-
 const styles = StyleSheet.create({
+  style: {
+    height: 180,
+    marginVertical: 15,
+  },
   title: {
     height: 40,
-    fontSize: 25,
+    fontSize: 23,
     fontWeight: 'bold',
-    marginLeft: 10,
+    marginLeft: 20,
     color: 'white',
   },
 });

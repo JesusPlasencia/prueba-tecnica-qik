@@ -15,3 +15,10 @@ export const orderMovies = (results: Movie[]) => {
   });
   return results;
 };
+
+export const avoidPosterNull = (results: Movie[]) => {
+  results.forEach((movie: Movie) => {
+    !movie?.backdrop_path;
+  });
+  return results;
+};

@@ -36,6 +36,7 @@ const castingStyles = StyleSheet.create({
     marginTop: 10,
     fontWeight: 'bold',
     marginHorizontal: 20,
+    color: 'white',
   },
   actorsList: {
     marginTop: 10,
