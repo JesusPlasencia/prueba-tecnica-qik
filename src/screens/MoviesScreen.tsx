@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Dimensions } from 'react-native';
 import { HorizontalSlider } from '../components/HorizontalSlider';
 import { useNowPlaying } from '../hooks/movies/useNowPlaying';
 import { Layout } from '../components/Layout';

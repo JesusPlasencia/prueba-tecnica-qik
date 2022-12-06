@@ -5,18 +5,18 @@ import { AxiosResponse } from 'axios';
 const useGet = (
   url: string,
 ): {
-  data: AxiosResponse['data'];
+  response: AxiosResponse['data'];
   isFetching: boolean;
 } => {
   const [isFetching, setIsFetching] = useState<boolean>(false);
-  const [data, setData] = useState<AxiosResponse['data']>();
+  const [response, setResponse] = useState<AxiosResponse['data']>();
 
   useEffect(() => {
     async function getMovie(): Promise<AxiosResponse['data']> {
       try {
         setIsFetching(true);
         const { data } = await API.get(url);
-        setData(data);
+        setResponse(data);
       } catch (err) {
         throw err;
       } finally {
@@ -27,7 +27,7 @@ const useGet = (
     getMovie();
   }, [url]);
 
-  return { data, isFetching };
+  return { response, isFetching };
 };
 
 export default useGet;

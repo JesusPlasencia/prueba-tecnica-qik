@@ -9,7 +9,6 @@ export type RootStackParams = {
   MovieDetailScreen: {
     movie: Movie;
   };
-  // ActorDetailScreen: { actorId: number };
 };
 
 const Stack = createNativeStackNavigator<RootStackParams>();

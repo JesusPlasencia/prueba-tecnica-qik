@@ -20,7 +20,7 @@ export const MovieDetailScreen = ({ route }: any) => {
       <PosterDetail posterUrl={movie?.poster_path} />
       <MovieDetails movieFull={detailMovie} isLoadingDetail={isLoadingDetail} />
       <CastSlider cast={cast} isLoadingCast={isLoadingCast} />
-      <Rate />
+      <Rate id={movie?.id} />
     </Layout>
   );
 };

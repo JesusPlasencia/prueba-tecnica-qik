@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
-import TOKEN_API from '../../api/TokenAPI';
 import { AxiosResponse } from 'axios';
+import { useEffect, useState } from 'react';
+import TOKEN_API from '../../api/TokenAPI';
 
-const usePost = (
-  url: string,
-  body: any,
-): {
-  response: AxiosResponse['data'];
+const useAccount = (): {
+  accountId: AxiosResponse['data'];
   isSending: boolean;
 } => {
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -16,7 +13,7 @@ const usePost = (
     async function postMovie(): Promise<AxiosResponse['data']> {
       try {
         setIsSending(true);
-        const { data } = await TOKEN_API.post(url, body);
+        const { data } = await TOKEN_API.get('account');
         setResponse(data);
       } catch (err) {
         throw err;
@@ -26,9 +23,12 @@ const usePost = (
     }
 
     postMovie();
-  }, [body, url]);
+  }, []);
 
-  return { response, isSending };
+  return {
+    accountId: response?.id,
+    isSending,
+  };
 };
 
-export default usePost;
+export default useAccount;

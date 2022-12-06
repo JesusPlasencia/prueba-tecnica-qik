@@ -5,10 +5,10 @@ interface GetCast {
 }
 
 export const useCast = ({ id }: GetCast) => {
-  const { data, isFetching } = useGet(`movie/${id}/credits`);
+  const { response, isFetching } = useGet(`movie/${id}/credits`);
 
   return {
     isLoadingCast: isFetching,
-    cast: data?.cast || [],
+    cast: response?.cast || [],
   };
 };

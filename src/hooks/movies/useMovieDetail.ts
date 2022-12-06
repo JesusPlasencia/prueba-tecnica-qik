@@ -5,10 +5,10 @@ interface GetDetail {
 }
 
 export const useMovieDetail = ({ id }: GetDetail) => {
-  const { data, isFetching } = useGet(`movie/${id}`);
+  const { response, isFetching } = useGet(`movie/${id}`);
 
   return {
     isLoadingDetail: isFetching,
-    detailMovie: data || undefined,
+    detailMovie: response || undefined,
   };
 };
