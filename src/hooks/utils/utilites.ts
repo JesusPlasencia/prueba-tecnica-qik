@@ -17,8 +17,13 @@ export const orderMovies = (results: Movie[]) => {
 };
 
 export const avoidPosterNull = (results: Movie[]) => {
-  results.forEach((movie: Movie) => {
-    !movie?.backdrop_path;
-  });
-  return results;
+  let moviesWPoster = [];
+  for (let movie of results) {
+    if (!movie.backdrop_path) {
+      continue;
+    } else {
+      moviesWPoster.push(movie);
+    }
+  }
+  return moviesWPoster;
 };

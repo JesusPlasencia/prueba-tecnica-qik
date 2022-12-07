@@ -1,6 +1,7 @@
 import TOKEN_API from '../../api/TokenAPI';
 import { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
+import { Movie } from '../../interfaces/MovieInterface';
 
 export const useMyRate = (
   account_id: number,
@@ -18,11 +19,14 @@ export const useMyRate = (
         const { data } = await TOKEN_API.get(
           `account/${account_id}/rated/movies`,
         );
-        data?.results.forEach((movie: any) => {
-          if (movie?.id === movie_id) {
-            setRate(movie?.rating);
-          }
-        });
+        let foundMovie = data?.results.find(
+          (movie: Movie) => movie.id === movie_id,
+        );
+        if (!foundMovie) {
+          setRate(0);
+        } else {
+          setRate(foundMovie?.rating);
+        }
       } catch (e) {
         throw e;
       } finally {
