@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/core';
 import { RootStackParams } from '../navigation/NavigationMovies';
+import Style from '../themes/Style';
 
 export const Poster = ({ movie, height, width }: PosterInterface) => {
   const uriImage = `https://image.tmdb.org/t/p/w500${movie?.poster_path}`;
@@ -20,7 +21,7 @@ export const Poster = ({ movie, height, width }: PosterInterface) => {
         {!movie?.poster_path ? (
           <View style={styles.wrapperIcon}>
             <Icon
-              color="#91918D"
+              color={Style.broken}
               name="broken-image"
               size={40}
               style={styles.brokenImage}
@@ -41,7 +42,7 @@ export const Poster = ({ movie, height, width }: PosterInterface) => {
         <View style={styles.rateInfoContainer}>
           <View style={styles.rateInfo}>
             <Text style={styles.voteAverage}>{movie.vote_average}</Text>
-            <Icon name="star" color="yellow" size={16} />
+            <Icon name="star" color={Style.yellow} size={16} />
           </View>
           <Text style={styles.releaseInfo}>{movie.release_date}</Text>
         </View>
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     borderRadius: 18,
-    shadowColor: '#000',
+    shadowColor: Style.black,
     shadowOffset: {
       width: -10,
       height: -10,
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     elevation: 9,
     shadowRadius: 7,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: Style.white,
   },
   wrapperIcon: {
     flex: 1,
@@ -93,13 +94,13 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    color: 'white',
+    color: Style.white,
   },
   movieTitle: {
     fontSize: 16,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'white',
+    color: Style.white,
   },
   rateInfoContainer: {
     flexDirection: 'row',
@@ -107,13 +108,13 @@ const styles = StyleSheet.create({
   rateInfo: {
     marginRight: 20,
     flexDirection: 'row',
-    color: 'white',
+    color: Style.white,
   },
   voteAverage: {
-    color: 'white',
+    color: Style.white,
   },
   releaseInfo: {
     marginLeft: 20,
-    color: 'white',
+    color: Style.white,
   },
 });

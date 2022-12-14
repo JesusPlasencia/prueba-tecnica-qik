@@ -5,6 +5,7 @@ import { SliderInterface } from '../interfaces/SliderInterface';
 //Components
 import { PosterSimilar } from './PosterSimilar';
 import { Loading } from './Loading';
+import Style from '../themes/Style';
 
 export const SimilarSlider = ({
   title,
@@ -41,6 +42,6 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontWeight: 'bold',
     marginLeft: 20,
-    color: 'white',
+    color: Style.white,
   },
 });

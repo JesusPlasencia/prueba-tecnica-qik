@@ -4,6 +4,7 @@ import { Rating } from 'react-native-ratings';
 import TOKEN_API from '../api/TokenAPI';
 import useAccount from '../hooks/movies/useAccount';
 import { useMyRate } from '../hooks/movies/useMyRates';
+import Style from '../themes/Style';
 import { Loading } from './Loading';
 
 interface RateProps {
@@ -35,13 +36,13 @@ export const Rate = (movieRate: RateProps) => {
         <Loading />
       ) : (
         <Rating
-          type="custom"
-          startingValue={myRate}
-          ratingCount={10}
-          imageSize={30}
-          ratingBackgroundColor="white"
-          onFinishRating={ratingCompleted}
-          tintColor="black"
+            type="custom"
+            startingValue={myRate}
+            ratingCount={10}
+            imageSize={30}
+            ratingBackgroundColor={Style.white}
+            onFinishRating={ratingCompleted}
+            tintColor={Style.black}
         />
       )}
     </View>
@@ -56,6 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 23,
     marginVertical: 10,
     fontWeight: 'bold',
-    color: 'white',
+    color: Style.white,
   },
 });

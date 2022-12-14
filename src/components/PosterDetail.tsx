@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Style from '../themes/Style';
 
 interface Props {
   posterUrl: string;
@@ -15,7 +16,7 @@ export const PosterDetail = ({ posterUrl }: Props) => {
       <View style={styles.imageBorder}>
         {!posterUrl ? (
           <Icon
-            color="#91918D"
+            color={Style.broken}
             name="broken-image"
             size={130}
             style={styles.brokenImage}
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: '100%',
     height: screenHeight * 0.7,
-    shadowColor: '#000',
+    shadowColor: Style.black,
     shadowOffset: {
       width: 0,
       height: 10,

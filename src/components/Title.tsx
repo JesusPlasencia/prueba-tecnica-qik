@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { LinearTextGradient } from 'react-native-text-gradient';
+import Style from '../themes/Style';
 
 export const Title = () => {
   return (
@@ -8,7 +9,7 @@ export const Title = () => {
       <LinearTextGradient
         style={styles.gradient}
         locations={[0, 1]}
-        colors={['#ffb703', '#fb8500']}
+        colors={[Style.gradientLeft, Style.gradientRight]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
       >
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Secular One',
     fontWeight: 'bold',
-    shadowColor: '#FFF',
+    shadowColor: Style.white,
     shadowOffset: {
       width: -10,
       height: -10,
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
   },
   author: {
-    color: '#fcbf49',
+    color: Style.author,
     font: 30,
   },
 });

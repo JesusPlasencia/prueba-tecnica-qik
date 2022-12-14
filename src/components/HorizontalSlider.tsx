@@ -5,6 +5,7 @@ import { SliderInterface } from '../interfaces/SliderInterface';
 //Components
 import { Poster } from './Poster';
 import { Loading } from './Loading';
+import Style from '../themes/Style';
 
 export const HorizontalSlider = ({
   title,
@@ -45,6 +46,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginLeft: 10,
-    color: 'white',
+    color: Style.white,
   },
 });

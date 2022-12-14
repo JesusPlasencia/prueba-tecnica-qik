@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
 import { Cast } from '../interfaces/CreditsInterface';
+import Style from '../themes/Style';
 import { Actor } from './Actor';
 import { Loading } from './Loading';
 
@@ -36,7 +37,7 @@ const castingStyles = StyleSheet.create({
     marginTop: 10,
     fontWeight: 'bold',
     marginHorizontal: 20,
-    color: 'white',
+    color: Style.white,
   },
   actorsList: {
     marginTop: 10,

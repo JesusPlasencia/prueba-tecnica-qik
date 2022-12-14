@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Text, View, StyleSheet } from 'react-native';
 import { Cast } from '../interfaces/creditsInterface';
+import Style from '../themes/Style';
 
 interface Props {
   actor: Cast;
@@ -25,10 +26,10 @@ export const Actor = ({ actor }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: Style.white,
     borderRadius: 10,
     height: 50,
-    shadowColor: '#000',
+    shadowColor: Style.black,
     shadowOffset: {
       width: 0,
       height: 10,
@@ -54,11 +55,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'black',
+    color: Style.black,
   },
   description: {
     fontSize: 16,
     opacity: 0.7,
-    color: 'black',
+    color: Style.black,
   },
 });

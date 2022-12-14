@@ -2,10 +2,11 @@ import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useScrollToTop } from '@react-navigation/native';
+import Style from '../themes/Style';
 
 export const Layout = ({ children }: any) => {
   const { top } = useSafeAreaInsets();
-  const ref = React.useRef(null);
+  const ref = React.useRef<any>(null);
   useScrollToTop(
     ref?.current?.scrollTo({
       y: 0,
@@ -27,10 +28,10 @@ export const Layout = ({ children }: any) => {
 const containerStyle = ({ top }: { top: EdgeInsets['top'] }) =>
   StyleSheet.create({
     layout: {
-      backgroundColor: 'black',
+      backgroundColor: Style.black,
     },
     style: {
-      backgroundColor: 'black',
+      backgroundColor: Style.black,
       marginTop: top + 20,
       marginBottom: 20,
     },

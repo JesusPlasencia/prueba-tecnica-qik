@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
 import { RootStackParams } from '../navigation/NavigationMovies';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import Style from '../themes/Style';
 
 export const PosterSimilar = ({ movie, height, width }: PosterInterface) => {
   const uriImage = `https://image.tmdb.org/t/p/w200${movie?.backdrop_path}`;
@@ -20,7 +21,7 @@ export const PosterSimilar = ({ movie, height, width }: PosterInterface) => {
         {!movie?.poster_path ? (
           <View style={styles.wrapperIcon}>
             <Icon
-              color="#91918D"
+              color={Style.broken}
               name="broken-image"
               size={40}
               style={styles.brokenImage}
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 1,
     borderRadius: 18,
-    shadowColor: '#000',
+    shadowColor: Style.black,
     shadowOffset: {
       width: -10,
       height: -10,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     elevation: 9,
     shadowRadius: 7,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: Style.white,
   },
   wrapperIcon: {
     flex: 1,
@@ -91,19 +92,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'white',
+    color: Style.white,
   },
   rateInfoContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    color: 'white',
+    color: Style.white,
     paddingHorizontal: 10,
   },
   vote_average: {
-    color: 'white',
+    color: Style.white,
   },
   textWhite: {
-    color: 'white',
+    color: Style.white,
   },
   similarRate: {
     flexDirection: 'row',

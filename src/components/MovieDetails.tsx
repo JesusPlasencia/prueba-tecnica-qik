@@ -5,6 +5,7 @@ import currencyFormatter from 'currency-formatter';
 import { MovieFull } from '../interfaces/MovieFullInterface';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Genre } from '../interfaces/MovieFullInterface';
+import Style from '../themes/Style';
 
 interface Props {
   movieFull: MovieFull;
@@ -23,7 +24,7 @@ export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
       </View>
       <View style={detailStyles.container}>
         <View style={detailStyles.rate}>
-          <Icon name="star" color="yellow" size={16} />
+            <Icon name="star" color={Style.yellow} size={16} />
           <Text style={detailStyles.textWhite}> {movieFull?.vote_average}</Text>
           <Text style={[detailStyles.genres, detailStyles.textWhite]}>
             - {movieFull?.genres.map((item: Genre) => item.name).join(', ')}
@@ -57,7 +58,7 @@ const detailStyles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
-    color: 'white',
+    color: Style.white,
   },
   textWrapper: {
     flex: 1,
@@ -72,15 +73,15 @@ const detailStyles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: 'white',
+    color: Style.white,
   },
   container: {
     marginHorizontal: 20,
-    color: 'white',
+    color: Style.white,
   },
   rate: {
     flexDirection: 'row',
-    color: 'white',
+    color: Style.white,
   },
   genres: {
     marginLeft: 5,
@@ -101,6 +102,6 @@ const detailStyles = StyleSheet.create({
     textAlign: 'justify',
   },
   textWhite: {
-    color: 'white',
+    color: Style.white,
   },
 });
