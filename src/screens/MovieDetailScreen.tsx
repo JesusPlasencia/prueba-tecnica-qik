@@ -1,3 +1,4 @@
+import { RouteProp } from '@react-navigation/core';
 import React from 'react';
 import { CastSlider } from '../components/CastSlider';
 import { Layout } from '../components/Layout';
@@ -8,8 +9,13 @@ import { SimilarSlider } from '../components/SimilarSlider';
 import { useCast } from '../hooks/movies/useCast';
 import { useMovieDetail } from '../hooks/movies/useMovieDetail';
 import { useSimilar } from '../hooks/movies/useSimilar';
+import { RootStackParams } from '../navigation/NavigationMovies';
 
-export const MovieDetailScreen = ({ route }: any) => {
+export interface Props {
+  route: RouteProp<RootStackParams, 'MovieDetailScreen'>
+}
+
+export const MovieDetailScreen = ({ route } : Props) => {
   const { movie } = route.params;
   const { isLoadingDetail, detailMovie } = useMovieDetail({
     id: movie.id,

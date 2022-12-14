@@ -4,6 +4,7 @@ import { Loading } from './Loading';
 import currencyFormatter from 'currency-formatter';
 import { MovieFull } from '../interfaces/MovieFullInterface';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Genre } from '../interfaces/MovieFullInterface';
 
 interface Props {
   movieFull: MovieFull;
@@ -25,7 +26,7 @@ export const MovieDetails = ({ movieFull, isLoadingDetail }: Props) => {
           <Icon name="star" color="yellow" size={16} />
           <Text style={detailStyles.textWhite}> {movieFull?.vote_average}</Text>
           <Text style={[detailStyles.genres, detailStyles.textWhite]}>
-            - {movieFull?.genres.map((g: any) => g.name).join(', ')}
+            - {movieFull?.genres.map((item: Genre) => item.name).join(', ')}
           </Text>
           <Text style={[detailStyles.date, detailStyles.textWhite]}>
             {' '}

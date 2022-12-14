@@ -2,11 +2,13 @@ import React from 'react';
 import { Image, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { PosterInterface } from '../interfaces/PosterInterface';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/core';
+import { RootStackParams } from '../navigation/NavigationMovies';
 
 export const Poster = ({ movie, height, width }: PosterInterface) => {
   const uriImage = `https://image.tmdb.org/t/p/w500${movie?.poster_path}`;
-  const navigation = useNavigation();
+  const navigation = useNavigation <NativeStackNavigationProp<RootStackParams>>();
 
   return (
     <TouchableOpacity
